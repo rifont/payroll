@@ -1,0 +1,27 @@
+{
+  "name": "payroll",
+  "version": "1.0.0",
+  "description": "Payroll management app",
+  "main": "server/src/server.js",
+  "author": "Richard Fontein",
+  "license": "MIT",
+  "scripts": {
+    "install:client": "cd client && yarn install",
+    "install:server": "cd server && yarn install",
+    "install": "yarn install:server && yarn install:client",
+    "build:client": "cd client && yarn build",
+    "build:server": "cd server && yarn build",
+    "build": "yarn build:server && yarn build:client",
+    "start": "cd server && node ./build/server.js",
+    "demo": "PORT=8080 NODE_ENV=production yarn start",
+    "server": "cd server && yarn dev",
+    "client": "cd client && yarn start",
+    "dev": "concurrently \"yarn server\" \"yarn client\"",
+    "test": "yarn test:client && yarn test:server",
+    "test:client": "cd client && yarn test",
+    "test:server": "cd server && yarn test"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.1"
+  }
+}
